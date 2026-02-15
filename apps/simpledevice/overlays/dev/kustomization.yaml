@@ -5,6 +5,7 @@ namespace: simpledevice-dev
 
 resources:
   - ../../base
+  - ingress.yaml
   - postgres.yaml
 
 images:
