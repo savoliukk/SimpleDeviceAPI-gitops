@@ -5,6 +5,8 @@ namespace: simpledevice-prod
 
 resources:
   - ../../base
+  - ingress.yaml
+
 
 images:
   - name: simpledevice-api
