@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simpledevice-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/savoliukk/SimpleDeviceAPI-gitops.git
+    targetRevision: main
+    path: apps/simpledevice/overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: simpledevice-prod
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

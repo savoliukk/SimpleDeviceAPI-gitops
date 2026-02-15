@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpledevice-api
+  labels:
+    app: simpledevice-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpledevice-api
+  template:
+    metadata:
+      labels:
+        app: simpledevice-api
+    spec:
+      containers:
+        - name: simpledevice-api
+          image: simpledevice-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: simpledevice-api-config
+            - secretRef:
+                name: simpledevice-api-secrets
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
