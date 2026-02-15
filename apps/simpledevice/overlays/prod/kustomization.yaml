@@ -6,7 +6,7 @@ namespace: simpledevice-prod
 resources:
   - ../../base
   - ingress.yaml
-
+  - postgres.yaml
 
 images:
   - name: simpledevice-api
