@@ -4,7 +4,7 @@ metadata:
   name: pv-simpledevice-prod-postgres
 spec:
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   accessModes: ["ReadWriteOnce"]
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ""
@@ -21,7 +21,7 @@ spec:
   accessModes: ["ReadWriteOnce"]
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
   volumeName: pv-simpledevice-prod-postgres
   storageClassName: ""
 ---
