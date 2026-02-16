@@ -8,13 +8,18 @@ resources:
   - ingress.yaml
   - postgres.yaml
 
+# Non-secret configuration (safe to keep in Git)
+configMapGenerator:
+  - name: simpledevice-api-config
+    literals:
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - ASPNETCORE_ENVIRONMENT=Production
+
+# Keep stable names (no hash suffix) so references stay constant
+generatorOptions:
+  disableNameSuffixHash: true
+
 images:
   - name: simpledevice-api
     newName: ghcr.io/savoliukk/simpledevice-api
     newTag: latest
-
-configMapGenerator:
-  - name: simpledevice-api-config
-    behavior: merge
-    literals:
-      - ASPNETCORE_ENVIRONMENT=Production
