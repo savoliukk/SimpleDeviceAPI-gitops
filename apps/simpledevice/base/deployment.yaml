@@ -14,7 +14,7 @@ spec:
       labels:
         app: simpledevice-api
       annotations:
-        reloader.stakater.com/auto: "true"
+        secret.reloader.stakater.com/reload: "simpledevice-api-secrets"
     spec:
       containers:
         - name: simpledevice-api

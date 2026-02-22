@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: simpledevice-api-config
-data:
-  ASPNETCORE_URLS: "http://0.0.0.0:8080"
