@@ -6,7 +6,6 @@ namespace: simpledevice-dev
 resources:
   - ../../base
   - ingress.yaml
-  - postgres.yaml
   - externalsecret.yaml
 
 # Non-secret configuration (safe to keep in Git)
