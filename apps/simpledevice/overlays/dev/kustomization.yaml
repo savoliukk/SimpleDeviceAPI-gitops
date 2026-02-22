@@ -23,3 +23,6 @@ images:
   - name: simpledevice-api
     newName: ghcr.io/savoliukk/simpledevice-api
     newTag: latest
+  - name: simpledevice-migrator
+    newName: ghcr.io/savoliukk/simpledevice-migrator
+    newTag: latest

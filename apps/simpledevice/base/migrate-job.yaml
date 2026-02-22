@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simpledevice-db-migrate
+  annotations:
+    # Run migrations during ArgoCD sync, after ExternalSecret/ConfigMap exist (wave 0),
+    # but before the API Deployment is applied (wave 2).
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "1"
+    # Keep the cluster clean and make the hook re-runnable on the next sync.
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation,HookSucceeded
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrator
+          # This is rewritten by kustomize in overlays to GHCR + tag.
+          image: simpledevice-migrator:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: simpledevice-api-config
+            - secretRef:
+                name: simpledevice-api-secrets
