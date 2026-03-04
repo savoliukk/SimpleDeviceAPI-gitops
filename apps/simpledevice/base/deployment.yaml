@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: simpledevice-api
-          image: simpledevice-api:latest
+          image: simpledevice-api:197891a
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
