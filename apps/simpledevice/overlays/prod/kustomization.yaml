@@ -22,7 +22,7 @@ generatorOptions:
 images:
   - name: simpledevice-api
     newName: ghcr.io/savoliukk/simpledevice-api
-    newTag: latest
+    newTag: 197891a
   - name: simpledevice-migrator
     newName: ghcr.io/savoliukk/simpledevice-migrator
-    newTag: latest
+    newTag: 197891a
