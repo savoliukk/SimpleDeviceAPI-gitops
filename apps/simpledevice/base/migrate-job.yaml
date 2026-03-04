@@ -17,7 +17,7 @@ spec:
       containers:
         - name: migrator
           # This is rewritten by kustomize in overlays to GHCR + tag.
-          image: simpledevice-migrator:latest
+          image: simpledevice-migrator:197891a
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
